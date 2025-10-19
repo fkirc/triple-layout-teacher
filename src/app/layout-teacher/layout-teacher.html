@@ -1,35 +1,51 @@
 <style>
-    .child {
-        background-color: aqua;
-        margin: 5px;
-        padding: 5px;
-    }
+  .child {
+    background-color: aqua;
+    margin: 5px;
+    padding: 5px;
+  }
 
-    .playgroundBox {
-        border: 1px solid black;
-    }
+  .optionsBox {
+    border: 1px solid black;
+  }
+
+  .playgroundBox {
+    border: 1px solid black;
+  }
 </style>
 
 <div>
-    <div style="height: 5px;"></div>
-    <label for="algorithm-select">Select a layout-algorithm: </label>
+  <div style="height: 5px"></div>
+  <label for="algorithm-select">Layout-algorithm: </label>
 
-    <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="onChange()">
+  <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="onChange()">
+    @for (algorithm of algorithms; track algorithm) {
+    <option [value]="algorithm">
+      {{ algorithm }}
+    </option>
+    }
+  </select>
+  <div style="height: 5px"></div>
 
-        @for (algorithm of algorithms; track algorithm) {
-        <option [value]="algorithm">
-            {{ algorithm }}
-        </option>
-        }
-    </select>
-    <div style="height: 5px;"></div>
-    <div class="playgroundBox" [style]="playgroundParentStyle">
-        <div class="child">Child 1</div>
-        <div class="child">Child 2</div>
-        <div class="child">Child 3</div>
-        <div class="child">Child 4</div>
-        <div class="child">Child 5</div>
-        <div class="child">Child 6</div>
-        <div class="child">Child 7</div>
-    </div>
+  <div class="optionsBox">
+    @switch (selectedAlgorithm) { @case ('block') {
+    <app-block-options></app-block-options>
+    } @case ('flex') {
+    <app-flex-options></app-flex-options>
+    } @case ('grid') {
+    <app-grid-options></app-grid-options>
+    } @default {
+    <div>Configuration for {{ selectedAlgorithm }} is not available.</div>
+    } }
+  </div>
+  <div style="height: 5px"></div>
+  <div class="playgroundBox" [style]="playgroundParentStyle">
+    <div class="child">Child 1</div>
+    <div class="child">Child 2</div>
+    <div class="child">Child 3</div>
+    <div class="child">Child 4</div>
+    <div class="child">Child 5</div>
+    <div class="child">Child 6</div>
+    <div class="child">Child 7</div>
+  </div>
 </div>
