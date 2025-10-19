@@ -70,6 +70,7 @@
     padding: 1rem;
     box-sizing: inherit;
     position: relative;
+    flex-direction: column;
   }
 
   .angular-logo {
@@ -78,6 +79,7 @@
 
   .content {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     width: 100%;
     max-width: 700px;
@@ -93,14 +95,17 @@
   }
 
   .divider {
-    width: 1px;
+    height: 1px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background: var(--red-to-pink-to-purple-vertical-gradient);
     margin-inline: 0.5rem;
   }
 
   .pill-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: start;
     flex-wrap: wrap;
     gap: 1.25rem;
@@ -184,13 +189,12 @@
 
 <main class="main">
   <div class="content">
-    <div class="left-side">
+    <div>
       <h1>Magic Layout Teacher</h1>
-      <h3>CSS Layout Algorithm Demo</h3>
       <app-layout-teacher></app-layout-teacher>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
+    <div>
       <div class="pill-group">
         @for (item of [
           { title: 'Explore the Docs', link: 'https://angular.dev' },
