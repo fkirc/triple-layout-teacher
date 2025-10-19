@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "css-layout-algorithm-demo": {
+    "magic-layout-teacher": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,7 +24,11 @@
             "styles": [
               "src/styles.css"
             ],
-            "outputMode": "static"
+            "server": "src/main.server.ts",
+            "outputMode": "static",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -54,10 +58,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "css-layout-algorithm-demo:build:production"
+              "buildTarget": "magic-layout-teacher:build:production"
             },
             "development": {
-              "buildTarget": "css-layout-algorithm-demo:build:development"
+              "buildTarget": "magic-layout-teacher:build:development"
             }
           },
           "defaultConfiguration": "development"
