@@ -4,11 +4,32 @@
         margin: 5px;
         padding: 5px;
     }
+
+    .playgroundBox {
+        border: 1px solid black;
+    }
 </style>
 
-<div style="color: black; font-size: 16px;">
-    <div class="child">Child 1</div>
-    <div class="child">Child 2</div>
-    <div class="child">Child 3</div>
-    <div class="child">Child 4</div>
+<div>
+    <div style="height: 5px;"></div>
+    <label for="algorithm-select">Select a layout-algorithm: </label>
+
+    <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="onChange()">
+
+        @for (algorithm of algorithms; track algorithm) {
+        <option [value]="algorithm">
+            {{ algorithm }}
+        </option>
+        }
+    </select>
+    <div style="height: 5px;"></div>
+    <div class="playgroundBox">
+        <div class="child">Child 1</div>
+        <div class="child">Child 2</div>
+        <div class="child">Child 3</div>
+        <div class="child">Child 4</div>
+        <div class="child">Child 5</div>
+        <div class="child">Child 6</div>
+        <div class="child">Child 7</div>
+    </div>
 </div>
