@@ -1,4 +1,4 @@
-# CSS Layout Algorithm Demo
+# Magic Layout Teacher
 
 An interactive demo for switching between CSS layout algorithms (flow, flexbox, grid, positioned).
 
@@ -11,7 +11,7 @@ This demo is inspired by the article "Understaying Layout Algorithms": https://w
 For me, it was fruitless to memorize individual CSS properties without seeing the bigger picture.
 Only by understanding the underlying layout algorithms, I can make a mental CSS model that makes sense for me.
 
-Therefore, this demo serves as a playground for experimenting with layout algorithms.
+Therefore, the Magic Layout Teacher serves as a playground for layout algorithms.
 
 ## Features
 
