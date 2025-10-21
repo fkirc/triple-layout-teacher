@@ -1,8 +1,6 @@
 <style>
   .child {
     background-color: aqua;
-    margin: 2px;
-    padding: 2px;
   }
 
   .optionsBox {
@@ -17,17 +15,20 @@
   }
 </style>
 
-<div>
+<div style="display: flex; flex-direction: column; row-gap: 5px; font-family: Helvetica">
   <div style="height: 5px"></div>
-  <label style="font-weight: bold" for="algorithm-select">Layout-algorithm: </label>
-  <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="saveState()">
-    @for (algorithm of algorithms; track algorithm) {
-    <option [value]="algorithm">
-      {{ algorithm }}
-    </option>
-    }
-  </select>
-  <div style="height: 5px"></div>
+  <div style="display: flex; flex-direction: row">
+    <label style="font-weight: bold; margin-right: 4px" for="algorithm-select"
+      >Layout-algorithm:
+    </label>
+    <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="saveState()">
+      @for (algorithm of algorithms; track algorithm) {
+      <option [value]="algorithm">
+        {{ algorithm }}
+      </option>
+      }
+    </select>
+  </div>
 
   <div class="optionsBox">
     @switch (selectedAlgorithm) { @case ('block') {
@@ -40,19 +41,18 @@
     <div>Configuration for {{ selectedAlgorithm }} is not available.</div>
     } }
   </div>
-  <div style="height: 5px"></div>
-  <div>Parent style:</div>
-  <div style="color: gray">{{ playgroundParentStyle }}</div>
-  <div style="height: 5px"></div>
+
+  <div style="font-size: 13px">
+    <div style="display: inline; margin-right: 4px">Parent CSS:</div>
+    <div style="display: inline; color: gray">{{ playgroundParentStyle }}</div>
+  </div>
+
   <div class="playgroundBox" [style]="playgroundParentStyle">
     <div class="child"><code>&lt;div&gt;Child 1&lt;/div&gt;</code></div>
-    <p class="child">
-      <code
-        >&lt;p&gt; Child 2: Lorem ipsum dolor sit amet linebreak,<br />after linebreak consectetur
-        adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        &lt;/p&gt;</code
-      >
-    </p>
+    <div class="child">
+      <code>&lt;div&gt; Child 2: Lorem ipsum linebreak,<br />after linebreak. &lt;/div&gt;</code>
+      <p><code>&lt;p&gt;A p-tag within child 2&lt;/p&gt;</code></p>
+    </div>
     <button class="child"><code>&lt;button&gt;Child 3&lt;/button&gt;</code></button>
     <span class="child"><code>&lt;span&gt;Child 4&lt;/span&gt;</code></span>
 

@@ -13,6 +13,7 @@ export class FlexOptions {
   justifyContent: string = 'flex-start';
   alignItems: string = 'stretch';
   alignContent: string = 'normal';
+  gap: string = '5px 5px';
 
   @Output() cssEmitter = new EventEmitter<string>();
 
@@ -33,6 +34,9 @@ export class FlexOptions {
     if (this.alignContent !== 'normal') {
       base += ` align-content: ${this.alignContent};`;
     }
+    if (this.gap !== 'initial') {
+      base += ` gap: ${this.gap};`;
+    }
     return base;
   }
 
@@ -47,6 +51,7 @@ export class FlexOptions {
       this.justifyContent = config.justifyContent || this.justifyContent;
       this.alignItems = config.alignItems || this.alignItems;
       this.alignContent = config.alignContent || this.alignContent;
+      this.gap = config.gap || this.gap;
     }
   }
 
@@ -57,6 +62,7 @@ export class FlexOptions {
       justifyContent: this.justifyContent,
       alignItems: this.alignItems,
       alignContent: this.alignContent,
+      gap: this.gap,
     };
     localStorage.setItem(this.storageKey, JSON.stringify(config));
   }

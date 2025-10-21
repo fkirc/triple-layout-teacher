@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './block-options.css',
 })
 export class BlockOptions {
-  textAlign: string = 'initial';
+  textAlign: string = '5px 5px';
   position: string = 'static';
 
   @Output() cssEmitter = new EventEmitter<string>();

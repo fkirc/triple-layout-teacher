@@ -51,4 +51,14 @@
     </select>
     }
   </div>
+  <div>
+    <label for="gap-select">gap: </label>
+    <select id="gap-select" [(ngModel)]="gap" (change)="sendCssToParent()">
+      @for (option of ['5px 5px', '0px 5px', '5px 0px', 'initial']; track option) {
+      <option [value]="option">
+        {{ option }}
+      </option>
+      }
+    </select>
+  </div>
 </div>
