@@ -3,22 +3,27 @@
     background-color: aqua;
     margin: 5px;
     padding: 5px;
+    display: inline-block;
+    flex-grow: 0;
   }
 
   .optionsBox {
     border: 1px solid black;
+    padding: 5px;
   }
 
   .playgroundBox {
     border: 1px solid black;
+    width: 94vw;
+    height: 80vh;
   }
 </style>
 
 <div>
   <div style="height: 5px"></div>
-  <label for="algorithm-select">Layout-algorithm: </label>
+  <label style="font-weight: bold;" for="algorithm-select">Layout-algorithm: </label>
 
-  <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="onChange()">
+  <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="onAlgorithmChange()">
     @for (algorithm of algorithms; track algorithm) {
     <option [value]="algorithm">
       {{ algorithm }}
@@ -31,7 +36,7 @@
     @switch (selectedAlgorithm) { @case ('block') {
     <app-block-options></app-block-options>
     } @case ('flex') {
-    <app-flex-options></app-flex-options>
+    <app-flex-options (cssEmitter)="onCssChange($event)"></app-flex-options>
     } @case ('grid') {
     <app-grid-options></app-grid-options>
     } @default {

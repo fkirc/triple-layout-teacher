@@ -1,1 +1,46 @@
-<p>flex-options works!</p>
+<div style="display: flex; flex-direction: column">
+  <div>
+    <label for="flex-direction-select">flex-direction: </label>
+    <select id="flex-direction-select" [(ngModel)]="flexDirection" (change)="sendCssToParent()">
+      @for (option of ['row', 'column', 'row-reverse', 'column-reverse']; track option) {
+      <option [value]="option">
+        {{ option }}
+      </option>
+      }
+    </select>
+  </div>
+  <div style="height: 5px"></div>
+  <div>
+    <label for="flex-wrap-select">flex-wrap: </label>
+    <select id="flex-wrap-select" [(ngModel)]="flexWrap" (change)="sendCssToParent()">
+      @for (option of ['nowrap', 'wrap', 'wrap-reverse']; track option) {
+      <option [value]="option">
+        {{ option }}
+      </option>
+      }
+    </select>
+  </div>
+  <div style="height: 5px"></div>
+  <div>
+    <label for="justify-content-select">justify-content: </label>
+    <select id="justify-content-select" [(ngModel)]="justifyContent" (change)="sendCssToParent()">
+      @for (option of ['flex-start', 'flex-end', 'center', 'space-between', 'space-around']; track
+      option) {
+      <option [value]="option">
+        {{ option }}
+      </option>
+      }
+    </select>
+  </div>
+  <div style="height: 5px"></div>
+  <div>
+    <label for="align-items-select">align-items: </label>
+    <select id="align-items-select" [(ngModel)]="alignItems" (change)="sendCssToParent()">
+      @for (option of ['stretch', 'flex-start', 'flex-end', 'center', 'baseline']; track option) {
+      <option [value]="option">
+        {{ option }}
+      </option>
+      }
+    </select>
+  </div>
+</div>
