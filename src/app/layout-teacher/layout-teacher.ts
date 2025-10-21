@@ -21,8 +21,7 @@ export class LayoutTeacher implements OnInit {
   playgroundParentStyle: string = '';
 
   ngOnInit(): void {
-    this.selectedAlgorithm = layoutAlgorithms[0];
-    this.playgroundParentStyle = '';
+    this.loadState();
   }
 
   onCssChange(newCss: string): void {
@@ -31,5 +30,19 @@ export class LayoutTeacher implements OnInit {
 
   onAlgorithmChange(): void {
     console.log('selectedAlgorithm changed:', this.selectedAlgorithm);
+    this.saveState();
+  }
+
+  private readonly storageKey = 'layoutAlgorithm';
+  private loadState(): void {
+    const savedAlgorithm = localStorage.getItem(this.storageKey) as LayoutAlgorithm | null;
+    if (savedAlgorithm && layoutAlgorithms.includes(savedAlgorithm)) {
+      this.selectedAlgorithm = savedAlgorithm;
+      console.log('Loaded selectedAlgorithm from localStorage:', this.selectedAlgorithm);
+    }
+  }
+
+  private saveState(): void {
+    localStorage.setItem(this.storageKey, this.selectedAlgorithm);
   }
 }
