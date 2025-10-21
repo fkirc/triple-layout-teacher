@@ -1,1 +1,24 @@
-<p>block-options works!</p>
+<div style="display: flex; flex-direction: column; gap: 5px">
+  <div>
+    <label for="block-text-align">text-align: </label>
+    <select id="block-text-align" [(ngModel)]="textAlign" (change)="saveState()">
+      @for (option of ['initial', 'start', 'end', 'left', 'right', 'center', 'justify']; track
+      option) {
+      <option [value]="option">
+        {{ option }}
+      </option>
+      }
+    </select>
+  </div>
+  <div>
+    <label for="block-position">position: </label>
+    <select id="block-position" [(ngModel)]="position" (change)="saveState()">
+      @for (option of ['static', 'relative', 'absolute', 'fixed', 'sticky']; track
+      option) {
+      <option [value]="option">
+        {{ option }}
+      </option>
+      }
+    </select>
+  </div>
+</div>

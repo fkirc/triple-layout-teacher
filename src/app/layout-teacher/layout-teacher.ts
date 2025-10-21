@@ -5,7 +5,7 @@ import { BlockOptions } from '../block-options/block-options';
 import { FlexOptions } from '../flex-options/flex-options';
 import { GridOptions } from '../grid-options/grid-options';
 
-const layoutAlgorithms = ['block', 'flex', 'grid', 'absolute', 'float'] as const;
+const layoutAlgorithms = ['flex', 'grid', 'block'] as const;
 type LayoutAlgorithm = (typeof layoutAlgorithms)[number];
 
 @Component({
@@ -17,7 +17,7 @@ type LayoutAlgorithm = (typeof layoutAlgorithms)[number];
 export class LayoutTeacher implements OnInit {
   algorithms = layoutAlgorithms;
 
-  selectedAlgorithm: LayoutAlgorithm = 'block';
+  selectedAlgorithm: LayoutAlgorithm = 'flex';
   playgroundParentStyle: string = '';
   objectFit: string = 'fill';
 

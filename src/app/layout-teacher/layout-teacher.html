@@ -31,7 +31,7 @@
 
   <div class="optionsBox">
     @switch (selectedAlgorithm) { @case ('block') {
-    <app-block-options></app-block-options>
+    <app-block-options (cssEmitter)="onCssChange($event)"></app-block-options>
     } @case ('flex') {
     <app-flex-options (cssEmitter)="onCssChange($event)"></app-flex-options>
     } @case ('grid') {

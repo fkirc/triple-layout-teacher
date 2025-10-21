@@ -18,7 +18,9 @@ export class FlexOptions {
 
   ngOnInit(): void {
     this.loadState();
-    this.sendCssToParent();
+    setTimeout(() => {
+      this.sendCssToParent();
+    }, 0);
   }
 
   sendCssToParent(): void {
