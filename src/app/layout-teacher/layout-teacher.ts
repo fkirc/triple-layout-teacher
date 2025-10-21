@@ -19,6 +19,7 @@ export class LayoutTeacher implements OnInit {
 
   selectedAlgorithm: LayoutAlgorithm = 'block';
   playgroundParentStyle: string = '';
+  objectFit: string = 'fill';
 
   ngOnInit(): void {
     this.loadState();
@@ -28,21 +29,22 @@ export class LayoutTeacher implements OnInit {
     this.playgroundParentStyle = newCss;
   }
 
-  onAlgorithmChange(): void {
-    console.log('selectedAlgorithm changed:', this.selectedAlgorithm);
-    this.saveState();
-  }
-
-  private readonly storageKey = 'layoutAlgorithm';
+  private readonly storageKey = 'layoutConfig';
   private loadState(): void {
-    const savedAlgorithm = localStorage.getItem(this.storageKey) as LayoutAlgorithm | null;
-    if (savedAlgorithm && layoutAlgorithms.includes(savedAlgorithm)) {
-      this.selectedAlgorithm = savedAlgorithm;
-      console.log('Loaded selectedAlgorithm from localStorage:', this.selectedAlgorithm);
+    const layoutConfig = localStorage.getItem(this.storageKey);
+    if (layoutConfig) {
+      console.log('Loaded layoutConfig from localStorage:', layoutConfig);
+      const { selectedAlgorithm, objectFit } = JSON.parse(layoutConfig);
+      this.selectedAlgorithm = selectedAlgorithm || this.selectedAlgorithm;
+      this.objectFit = objectFit || this.objectFit;
     }
   }
 
-  private saveState(): void {
-    localStorage.setItem(this.storageKey, this.selectedAlgorithm);
+  saveState(): void {
+    const layoutConfig = {
+      selectedAlgorithm: this.selectedAlgorithm,
+      objectFit: this.objectFit,
+    };
+    localStorage.setItem(this.storageKey, JSON.stringify(layoutConfig));
   }
 }

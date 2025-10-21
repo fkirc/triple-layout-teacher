@@ -2,8 +2,7 @@
   .child {
     background-color: aqua;
     margin: 2px;
-    padding: 5px;
-    display: inline-block;
+    padding: 2px;
   }
 
   .optionsBox {
@@ -20,9 +19,8 @@
 
 <div>
   <div style="height: 5px"></div>
-  <label style="font-weight: bold;" for="algorithm-select">Layout-algorithm: </label>
-
-  <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="onAlgorithmChange()">
+  <label style="font-weight: bold" for="algorithm-select">Layout-algorithm: </label>
+  <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="saveState()">
     @for (algorithm of algorithms; track algorithm) {
     <option [value]="algorithm">
       {{ algorithm }}
@@ -44,15 +42,40 @@
   </div>
   <div style="height: 5px"></div>
   <div>Parent style:</div>
-  <div style="color: gray;">{{ playgroundParentStyle }}</div>
+  <div style="color: gray">{{ playgroundParentStyle }}</div>
   <div style="height: 5px"></div>
   <div class="playgroundBox" [style]="playgroundParentStyle">
-    <div class="child">Child 1</div>
-    <div class="child">Child 2</div>
-    <div class="child">Child 3</div>
-    <div class="child">Child 4</div>
-    <div class="child">Child 5</div>
-    <div class="child">Child 6</div>
-    <div class="child">Child 7</div>
+    <div class="child"><code>&lt;div&gt;Child 1&lt;/div&gt;</code></div>
+    <p class="child">
+      <code
+        >&lt;p&gt; Child 2: Lorem ipsum dolor sit amet linebreak,<br />after linebreak consectetur
+        adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        &lt;/p&gt;</code
+      >
+    </p>
+    <button class="child"><code>&lt;button&gt;Child 3&lt;/button&gt;</code></button>
+    <span class="child"><code>&lt;span&gt;Child 4&lt;/span&gt;</code></span>
+
+    <label for="objectFit-select">objectFit:</label>
+    <select id="objectFit-select" [(ngModel)]="objectFit" (change)="saveState()" class="child">
+      <option value="fill">fill</option>
+      <option value="contain">contain</option>
+      <option value="cover">cover</option>
+      <option value="none">none</option>
+      <option value="scale-down">scale-down</option>
+    </select>
+
+    <img
+      class="child"
+      style="width: 20%; height: 10%"
+      [style.objectFit]="objectFit"
+      src="./favicon.ico"
+    />
+
+    <div class="child" style="display: inline-block">
+      <code>&lt;div style="display: inline-block"&gt;Child 7&lt;/div&gt;</code>
+    </div>
+    Child 8: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua.
   </div>
 </div>
