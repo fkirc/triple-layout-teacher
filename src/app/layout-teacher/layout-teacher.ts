@@ -5,13 +5,22 @@ import { BlockOptions } from '../block-options/block-options';
 import { FlexOptions } from '../flex-options/flex-options';
 import { GridOptions } from '../grid-options/grid-options';
 import { ConfigurableChild } from './configurable-child';
+import { ImageObjectFit } from './image-object-fit';
 
 const layoutAlgorithms = ['flex', 'grid', 'block'] as const;
 export type LayoutAlgorithm = (typeof layoutAlgorithms)[number];
 
 @Component({
   selector: 'app-layout-teacher',
-  imports: [CommonModule, FormsModule, BlockOptions, FlexOptions, GridOptions, ConfigurableChild],
+  imports: [
+    CommonModule,
+    FormsModule,
+    BlockOptions,
+    FlexOptions,
+    GridOptions,
+    ConfigurableChild,
+    ImageObjectFit,
+  ],
   templateUrl: './layout-teacher.html',
   styleUrl: './layout-teacher.css',
 })
@@ -20,7 +29,6 @@ export class LayoutTeacher implements OnInit {
 
   layoutAlgorithm: LayoutAlgorithm = 'flex';
   playgroundParentStyle: string = '';
-  objectFit: string = 'fill';
 
   ngOnInit(): void {
     this.loadState();
@@ -40,14 +48,12 @@ export class LayoutTeacher implements OnInit {
       console.log('Loaded layoutConfig from localStorage:', layoutConfig);
       const { layoutAlgorithm, objectFit } = JSON.parse(layoutConfig);
       this.layoutAlgorithm = layoutAlgorithm || this.layoutAlgorithm;
-      this.objectFit = objectFit || this.objectFit;
     }
   }
 
   saveState(): void {
     const layoutConfig = {
       layoutAlgorithm: this.layoutAlgorithm,
-      objectFit: this.objectFit,
     };
     localStorage.setItem(this.storageKey, JSON.stringify(layoutConfig));
   }

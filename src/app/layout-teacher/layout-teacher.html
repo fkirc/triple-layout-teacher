@@ -60,24 +60,18 @@
     <button class="child"><code>&lt;button&gt;Child 3&lt;/button&gt;</code></button>
     <span class="child"><code>&lt;span&gt;Child 4&lt;/span&gt;</code></span>
 
-    <select id="objectFit-select" [(ngModel)]="objectFit" (ngModelChange)="saveState()" class="child">
-      <option value="fill">object-fit: fill</option>
-      <option value="contain">object-fit: contain</option>
-      <option value="cover">object-fit: cover</option>
-      <option value="none">object-fit: none</option>
-      <option value="scale-down">object-fit: scale-down</option>
-    </select>
+    <image-object-fit />
 
-    <img
-      class="child"
-      style="width: 20%; height: 10%"
-      [style.objectFit]="objectFit"
-      src="./favicon.ico"
-    />
+    <configurable-child
+      [layoutAlgorithm]="layoutAlgorithm"
+      [childName]="'Child 6'"
+    ></configurable-child>
 
-    <div class="child" style="display: inline-block">
-      <code>&lt;div style="display: inline-block"&gt;Child 7&lt;/div&gt;</code>
-    </div>
+    <configurable-child
+      [layoutAlgorithm]="layoutAlgorithm"
+      [childName]="'Child 7'"
+    ></configurable-child>
+
     Child 8: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
     incididunt ut labore et dolore magna aliqua.
   </div>
