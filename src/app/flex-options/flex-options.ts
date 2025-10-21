@@ -42,6 +42,9 @@ export class FlexOptions {
 
   private readonly storageKey = 'flexboxConfig';
   private loadState(): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
     const savedState = localStorage.getItem(this.storageKey);
     if (savedState) {
       const config = JSON.parse(savedState);
@@ -56,6 +59,9 @@ export class FlexOptions {
   }
 
   private saveState(): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
     const config = {
       flexDirection: this.flexDirection,
       flexWrap: this.flexWrap,

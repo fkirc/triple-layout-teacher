@@ -33,6 +33,9 @@ export class BlockOptions {
 
   private readonly storageKey = 'blockConfig';
   private loadState(): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
     const savedState = localStorage.getItem(this.storageKey);
     if (savedState) {
       const config = JSON.parse(savedState);
@@ -44,6 +47,10 @@ export class BlockOptions {
 
   saveState(): void {
     this.cssEmitter.emit(this.getCss());
+
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
     const config = {
       textAlign: this.textAlign,
       position: this.position,

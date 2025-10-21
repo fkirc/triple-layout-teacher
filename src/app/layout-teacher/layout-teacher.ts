@@ -31,6 +31,9 @@ export class LayoutTeacher implements OnInit {
 
   private readonly storageKey = 'layoutConfig';
   private loadState(): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
     const layoutConfig = localStorage.getItem(this.storageKey);
     if (layoutConfig) {
       console.log('Loaded layoutConfig from localStorage:', layoutConfig);
