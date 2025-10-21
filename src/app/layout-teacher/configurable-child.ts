@@ -1,0 +1,90 @@
+import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { LayoutAlgorithm } from './layout-teacher';
+
+@Component({
+  selector: 'configurable-child',
+  imports: [FormsModule],
+  template: `
+    <div class="child" [style]="childCss">
+      <div style="display: inline; margin-right: 4px">{{ childName }}:</div>
+      <select class="child" [(ngModel)]="childCss" (ngModelChange)="saveState()">
+        <option value="display: block;">
+          {{ layoutAlgorithm === 'block' ? '🟢' : '⚪' }}
+          display: block
+        </option>
+        <option value="display: inline;">
+          {{ layoutAlgorithm === 'block' ? '🟢' : '⚪' }}
+          display: inline
+        </option>
+        <option value="display: inline-block;">
+          {{ layoutAlgorithm === 'block' ? '🟢' : '⚪' }}
+          display: inline-block
+        </option>
+        <option value="align-self: auto;">
+          {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: auto
+        </option>
+        <option value="align-self: stretch">
+          {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: stretch
+        </option>
+        <option value="align-self: center;">
+          {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: center
+        </option>
+        <option value="align-self: flex-start;">
+          {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: flex-start
+        </option>
+        <option value="align-self: flex-end;">
+          {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: flex-end
+        </option>
+      </select>
+    </div>
+  `,
+  styles: [
+    `
+      .child {
+        background-color: aqua;
+      }
+      :host {
+        display: contents; // So that the wrapper div does not prevent children from being flex/grid items
+      }
+    `,
+  ],
+})
+export class ConfigurableChild {
+  childCss: string = 'display: inline-block;';
+  @Input() layoutAlgorithm!: LayoutAlgorithm;
+  @Input() childName!: string;
+
+  private storageKey() {
+    return `configurableChild-${this.childName}-css`;
+  }
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.loadState();
+    }, 0);
+  }
+
+  private loadState(): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
+    const storedCss = localStorage.getItem(this.storageKey());
+    if (storedCss) {
+      this.childCss = storedCss;
+    }
+  }
+
+  public saveState(): void {
+    console.log('Saving css for ' + this.childName, this.childCss);
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
+    localStorage.setItem(this.storageKey(), this.childCss);
+  }
+}

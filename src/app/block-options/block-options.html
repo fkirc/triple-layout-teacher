@@ -1,7 +1,7 @@
 <div style="display: flex; flex-direction: column; gap: 5px">
   <div>
     <label for="block-text-align">text-align: </label>
-    <select id="block-text-align" [(ngModel)]="textAlign" (change)="saveState()">
+    <select id="block-text-align" [(ngModel)]="textAlign" (ngModelChange)="saveState()">
       @for (option of ['initial', 'start', 'end', 'left', 'right', 'center', 'justify']; track
       option) {
       <option [value]="option">
@@ -12,7 +12,7 @@
   </div>
   <div>
     <label for="block-position">position: </label>
-    <select id="block-position" [(ngModel)]="position" (change)="saveState()">
+    <select id="block-position" [(ngModel)]="position" (ngModelChange)="saveState()">
       @for (option of ['static', 'relative', 'absolute', 'fixed', 'sticky']; track
       option) {
       <option [value]="option">

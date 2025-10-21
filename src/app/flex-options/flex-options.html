@@ -1,7 +1,7 @@
 <div style="display: flex; flex-direction: column; gap: 5px">
   <div>
     <label for="flex-direction-select">flex-direction: </label>
-    <select id="flex-direction-select" [(ngModel)]="flexDirection" (change)="sendCssToParent()">
+    <select id="flex-direction-select" [(ngModel)]="flexDirection" (ngModelChange)="sendCssToParent()">
       @for (option of ['row', 'column', 'row-reverse', 'column-reverse']; track option) {
       <option [value]="option">
         {{ option }}
@@ -11,7 +11,7 @@
   </div>
   <div>
     <label for="justify-content-select">justify-content: </label>
-    <select id="justify-content-select" [(ngModel)]="justifyContent" (change)="sendCssToParent()">
+    <select id="justify-content-select" [(ngModel)]="justifyContent" (ngModelChange)="sendCssToParent()">
       @for (option of ['flex-start', 'flex-end', 'center', 'space-between', 'space-around']; track
       option) {
       <option [value]="option">
@@ -22,7 +22,7 @@
   </div>
   <div>
     <label for="align-items-select">align-items: </label>
-    <select id="align-items-select" [(ngModel)]="alignItems" (change)="sendCssToParent()">
+    <select id="align-items-select" [(ngModel)]="alignItems" (ngModelChange)="sendCssToParent()">
       @for (option of ['stretch', 'flex-start', 'flex-end', 'center', 'baseline']; track option) {
       <option [value]="option">
         {{ option }}
@@ -32,7 +32,7 @@
   </div>
   <div>
     <label for="flex-wrap-select">flex-wrap: </label>
-    <select id="flex-wrap-select" [(ngModel)]="flexWrap" (change)="sendCssToParent()">
+    <select id="flex-wrap-select" [(ngModel)]="flexWrap" (ngModelChange)="sendCssToParent()">
       @for (option of ['nowrap', 'wrap', 'wrap-reverse']; track option) {
       <option [value]="option">
         {{ option }}
@@ -41,7 +41,7 @@
     </select>
     @if (flexWrap !== 'nowrap') {
     <label for="align-content-select"> align-content: </label>
-    <select id="align-content-select" [(ngModel)]="alignContent" (change)="sendCssToParent()">
+    <select id="align-content-select" [(ngModel)]="alignContent" (ngModelChange)="sendCssToParent()">
       @for (option of ['normal', 'flex-start', 'flex-end', 'center', 'space-between',
       'space-around']; track option) {
       <option [value]="option">
@@ -53,7 +53,7 @@
   </div>
   <div>
     <label for="gap-select">gap: </label>
-    <select id="gap-select" [(ngModel)]="gap" (change)="sendCssToParent()">
+    <select id="gap-select" [(ngModel)]="gap" (ngModelChange)="sendCssToParent()">
       @for (option of ['5px 5px', '0px 5px', '5px 0px', 'initial']; track option) {
       <option [value]="option">
         {{ option }}

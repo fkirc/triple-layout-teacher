@@ -21,7 +21,7 @@
     <label style="font-weight: bold; margin-right: 4px" for="algorithm-select"
       >Layout-algorithm:
     </label>
-    <select id="algorithm-select" [(ngModel)]="selectedAlgorithm" (change)="saveState()">
+    <select id="algorithm-select" [(ngModel)]="layoutAlgorithm" (ngModelChange)="saveState()">
       @for (algorithm of algorithms; track algorithm) {
       <option [value]="algorithm">
         {{ algorithm }}
@@ -31,14 +31,14 @@
   </div>
 
   <div class="optionsBox">
-    @switch (selectedAlgorithm) { @case ('block') {
+    @switch (layoutAlgorithm) { @case ('block') {
     <app-block-options (cssEmitter)="onCssChange($event)"></app-block-options>
     } @case ('flex') {
     <app-flex-options (cssEmitter)="onCssChange($event)"></app-flex-options>
     } @case ('grid') {
     <app-grid-options></app-grid-options>
     } @default {
-    <div>Configuration for {{ selectedAlgorithm }} is not available.</div>
+    <div>Configuration for {{ layoutAlgorithm }} is not available.</div>
     } }
   </div>
 
@@ -48,43 +48,10 @@
   </div>
 
   <div class="playgroundBox" [style]="playgroundParentStyle">
-    <div class="child" [style]="child1CSS" style="margin: 5px">
-      <div style="display: inline; margin-right: 4px">Child 1:</div>
-      <select class="child" id="child-1-select" [(ngModel)]="child1CSS" (change)="saveState()">
-        <option value="display: block">
-          {{ selectedAlgorithm === 'block' ? '🟢' : '⚪' }}
-          display: block
-        </option>
-        <option style="color: gray" value="display: inline">
-          {{ selectedAlgorithm === 'block' ? '🟢' : '⚪' }}
-          display: inline
-        </option>
-        <option value="display: inline-block">
-          {{ selectedAlgorithm === 'block' ? '🟢' : '⚪' }}
-          display: inline-block
-        </option>
-        <option value="align-self: auto">
-          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
-          align-self: auto
-        </option>
-        <option value="align-self: stretch">
-          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
-          align-self: stretch
-        </option>
-        <option value="align-self: center">
-          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
-          align-self: center
-        </option>
-        <option value="align-self: flex-start">
-          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
-          align-self: flex-start
-        </option>
-        <option value="align-self: flex-end">
-          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
-          align-self: flex-end
-        </option>
-      </select>
-    </div>
+    <configurable-child
+      [layoutAlgorithm]="layoutAlgorithm"
+      [childName]="'Child 1'"
+    ></configurable-child>
 
     <div class="child">
       <code>&lt;div&gt; Child 2: Lorem ipsum linebreak,<br />after linebreak. &lt;/div&gt;</code>
@@ -93,7 +60,7 @@
     <button class="child"><code>&lt;button&gt;Child 3&lt;/button&gt;</code></button>
     <span class="child"><code>&lt;span&gt;Child 4&lt;/span&gt;</code></span>
 
-    <select id="objectFit-select" [(ngModel)]="objectFit" (change)="saveState()" class="child">
+    <select id="objectFit-select" [(ngModel)]="objectFit" (ngModelChange)="saveState()" class="child">
       <option value="fill">object-fit: fill</option>
       <option value="contain">object-fit: contain</option>
       <option value="cover">object-fit: cover</option>

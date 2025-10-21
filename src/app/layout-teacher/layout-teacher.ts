@@ -4,23 +4,23 @@ import { CommonModule } from '@angular/common';
 import { BlockOptions } from '../block-options/block-options';
 import { FlexOptions } from '../flex-options/flex-options';
 import { GridOptions } from '../grid-options/grid-options';
+import { ConfigurableChild } from './configurable-child';
 
 const layoutAlgorithms = ['flex', 'grid', 'block'] as const;
-type LayoutAlgorithm = (typeof layoutAlgorithms)[number];
+export type LayoutAlgorithm = (typeof layoutAlgorithms)[number];
 
 @Component({
   selector: 'app-layout-teacher',
-  imports: [CommonModule, FormsModule, BlockOptions, FlexOptions, GridOptions],
+  imports: [CommonModule, FormsModule, BlockOptions, FlexOptions, GridOptions, ConfigurableChild],
   templateUrl: './layout-teacher.html',
   styleUrl: './layout-teacher.css',
 })
 export class LayoutTeacher implements OnInit {
   algorithms = layoutAlgorithms;
 
-  selectedAlgorithm: LayoutAlgorithm = 'flex';
+  layoutAlgorithm: LayoutAlgorithm = 'flex';
   playgroundParentStyle: string = '';
   objectFit: string = 'fill';
-  child1CSS: string = 'display: inline-block';
 
   ngOnInit(): void {
     this.loadState();
@@ -38,15 +38,15 @@ export class LayoutTeacher implements OnInit {
     const layoutConfig = localStorage.getItem(this.storageKey);
     if (layoutConfig) {
       console.log('Loaded layoutConfig from localStorage:', layoutConfig);
-      const { selectedAlgorithm, objectFit } = JSON.parse(layoutConfig);
-      this.selectedAlgorithm = selectedAlgorithm || this.selectedAlgorithm;
+      const { layoutAlgorithm, objectFit } = JSON.parse(layoutConfig);
+      this.layoutAlgorithm = layoutAlgorithm || this.layoutAlgorithm;
       this.objectFit = objectFit || this.objectFit;
     }
   }
 
   saveState(): void {
     const layoutConfig = {
-      selectedAlgorithm: this.selectedAlgorithm,
+      layoutAlgorithm: this.layoutAlgorithm,
       objectFit: this.objectFit,
     };
     localStorage.setItem(this.storageKey, JSON.stringify(layoutConfig));
