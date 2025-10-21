@@ -29,13 +29,13 @@ import { LayoutAlgorithm } from './layout-teacher';
           {{ layoutAlgorithm === 'flow' ? '🟢' : '🔴' }}
           float: right
         </option>
-        <option value="float: inline-start;">
-          {{ layoutAlgorithm === 'flow' ? '🟢' : '🔴' }}
-          float: inline-start
+        <option value="position: absolute;">
+          {{ '🟢' }}
+          position: absolute
         </option>
-        <option value="float: inline-end;">
-          {{ layoutAlgorithm === 'flow' ? '🟢' : '🔴' }}
-          float: inline-end
+        <option value="position: absolute; bottom: 0; left: 0;">
+          {{ '🟢' }}
+          position: absolute; bottom: 0; left: 0;
         </option>
         <option value="align-self: auto;">
           {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
