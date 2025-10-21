@@ -37,6 +37,10 @@ import { LayoutAlgorithm } from './layout-teacher';
           {{ '🟢' }}
           position: absolute; bottom: 0; left: 0;
         </option>
+        <option value="position: relative; top: -20px;">
+          {{ '🟢' }}
+          position: relative; top: -20px;
+        </option>
         <option value="align-self: auto;">
           {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
           align-self: auto
