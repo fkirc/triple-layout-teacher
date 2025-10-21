@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-flex-options',
+  selector: 'flex-options',
   imports: [FormsModule],
   templateUrl: './flex-options.html',
   styleUrl: './flex-options.css',

@@ -2,12 +2,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-block-options',
+  selector: 'flow-options',
   imports: [FormsModule],
-  templateUrl: './block-options.html',
-  styleUrl: './block-options.css',
+  templateUrl: './flow-options.html',
 })
-export class BlockOptions implements OnInit {
+export class FlowOptions implements OnInit {
   textAlign: string = '5px 5px';
   position: string = 'static';
 

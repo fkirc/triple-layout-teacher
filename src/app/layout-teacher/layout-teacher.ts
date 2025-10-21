@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { BlockOptions } from '../block-options/block-options';
+import { FlowOptions } from '../flow-options/flow-options';
 import { FlexOptions } from '../flex-options/flex-options';
 import { GridOptions } from '../grid-options/grid-options';
 import { ConfigurableChild } from './configurable-child';
@@ -15,7 +15,7 @@ export type LayoutAlgorithm = (typeof layoutAlgorithms)[number];
   imports: [
     CommonModule,
     FormsModule,
-    BlockOptions,
+    FlowOptions,
     FlexOptions,
     GridOptions,
     ConfigurableChild,

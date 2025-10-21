@@ -32,11 +32,11 @@
 
   <div class="optionsBox">
     @switch (layoutAlgorithm) { @case ('flow') {
-    <app-block-options (cssEmitter)="onCssChange($event)"></app-block-options>
+    <flow-options (cssEmitter)="onCssChange($event)"></flow-options>
     } @case ('flex') {
-    <app-flex-options (cssEmitter)="onCssChange($event)"></app-flex-options>
+    <flex-options (cssEmitter)="onCssChange($event)"></flex-options>
     } @case ('grid') {
-    <app-grid-options></app-grid-options>
+    <grid-options></grid-options>
     } @default {
     <div>Configuration for {{ layoutAlgorithm }} is not available.</div>
     } }
