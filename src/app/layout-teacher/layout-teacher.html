@@ -51,14 +51,38 @@
     <div class="child" [style]="child1CSS" style="margin: 5px">
       <div style="display: inline; margin-right: 4px">Child 1:</div>
       <select class="child" id="child-1-select" [(ngModel)]="child1CSS" (change)="saveState()">
-        <option value="display: block">display: block</option>
-        <option value="display: inline">display: inline</option>
-        <option value="display: inline-block">display: inline-block</option>
-        <option value="align-self: auto">align-self: auto</option>
-        <option value="align-self: stretch">align-self: stretch</option>
-        <option value="align-self: center">align-self: center</option>
-        <option value="align-self: flex-start">align-self: flex-start</option>
-        <option value="align-self: flex-end">align-self: flex-end</option>
+        <option value="display: block">
+          {{ selectedAlgorithm === 'block' ? '🟢' : '⚪' }}
+          display: block
+        </option>
+        <option style="color: gray" value="display: inline">
+          {{ selectedAlgorithm === 'block' ? '🟢' : '⚪' }}
+          display: inline
+        </option>
+        <option value="display: inline-block">
+          {{ selectedAlgorithm === 'block' ? '🟢' : '⚪' }}
+          display: inline-block
+        </option>
+        <option value="align-self: auto">
+          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: auto
+        </option>
+        <option value="align-self: stretch">
+          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: stretch
+        </option>
+        <option value="align-self: center">
+          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: center
+        </option>
+        <option value="align-self: flex-start">
+          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: flex-start
+        </option>
+        <option value="align-self: flex-end">
+          {{ selectedAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          align-self: flex-end
+        </option>
       </select>
     </div>
 
@@ -69,13 +93,12 @@
     <button class="child"><code>&lt;button&gt;Child 3&lt;/button&gt;</code></button>
     <span class="child"><code>&lt;span&gt;Child 4&lt;/span&gt;</code></span>
 
-    <label for="objectFit-select">objectFit:</label>
     <select id="objectFit-select" [(ngModel)]="objectFit" (change)="saveState()" class="child">
-      <option value="fill">fill</option>
-      <option value="contain">contain</option>
-      <option value="cover">cover</option>
-      <option value="none">none</option>
-      <option value="scale-down">scale-down</option>
+      <option value="fill">object-fit: fill</option>
+      <option value="contain">object-fit: contain</option>
+      <option value="cover">object-fit: cover</option>
+      <option value="none">object-fit: none</option>
+      <option value="scale-down">object-fit: scale-down</option>
     </select>
 
     <img

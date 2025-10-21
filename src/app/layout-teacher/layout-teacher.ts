@@ -20,7 +20,7 @@ export class LayoutTeacher implements OnInit {
   selectedAlgorithm: LayoutAlgorithm = 'flex';
   playgroundParentStyle: string = '';
   objectFit: string = 'fill';
-  child1CSS: string = '';
+  child1CSS: string = 'display: inline-block';
 
   ngOnInit(): void {
     this.loadState();
