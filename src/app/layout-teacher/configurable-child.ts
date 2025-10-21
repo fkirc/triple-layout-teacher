@@ -61,6 +61,14 @@ import { LayoutAlgorithm } from './layout-teacher';
           {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
           align-self: flex-end
         </option>
+        <option value="flex-grow: 1;">
+          {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          flex-grow: 1
+        </option>
+        <option value="flex-grow: 2;">
+          {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
+          flex-grow: 2
+        </option>
       </select>
     </div>
   `,
