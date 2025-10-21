@@ -1,1 +1,97 @@
-<p>grid-options works!</p>
+<div style="display: flex; flex-direction: column; gap: 5px">
+  <div>
+    <label for="grid-display">grid-display: </label>
+    <select id="grid-display" [(ngModel)]="display" (ngModelChange)="saveState()">
+      <option value="grid">grid</option>
+      <option value="inline-grid">inline-grid</option>
+    </select>
+  </div>
+  <div>
+    <label for="grid-template-columns">grid-template-columns: </label>
+    <select
+      id="grid-template-columns"
+      [(ngModel)]="gridTemplateColumns"
+      (ngModelChange)="saveState()"
+    >
+      <option value="1fr">1fr</option>
+      <option value="repeat(2, 1fr)">repeat(2, 1fr)</option>
+      <option value="repeat(4, 25%)">repeat(4, 25%)</option>
+      <option value="repeat(4, 1fr)">repeat(4, 1fr)</option>
+      <option value="3fr">3fr</option>
+    </select>
+  </div>
+  <div>
+    <label for="grid-template-rows">grid-template-rows: </label>
+    <select id="grid-template-rows" [(ngModel)]="gridTemplateRows" (ngModelChange)="saveState()">
+      <option value="auto">auto</option>
+      <option value="repeat(4, 25%)">repeat(4, 25%)</option>
+      <option value="1fr 2fr">1fr 2fr</option>
+    </select>
+  </div>
+  <div>
+    <label for="grid-column-gap">column-gap: </label>
+    <select id="grid-column-gap" [(ngModel)]="columnGap" (ngModelChange)="saveState()">
+      <option value="0px">0px</option>
+      <option value="5px">5px</option>
+      <option value="10px">10px</option>
+      <option value="20px">20px</option>
+    </select>
+  </div>
+  <div>
+    <label for="grid-row-gap">row-gap: </label>
+    <select id="grid-row-gap" [(ngModel)]="rowGap" (ngModelChange)="saveState()">
+      <option value="0px">0px</option>
+      <option value="5px">5px</option>
+      <option value="10px">10px</option>
+      <option value="20px">20px</option>
+    </select>
+  </div>
+  <div>
+    <label for="grid-justify-items">justify-items: </label>
+    <select id="grid-justify-items" [(ngModel)]="justifyItems" (ngModelChange)="saveState()">
+      <option value="stretch">stretch</option>
+      <option value="start">start</option>
+      <option value="end">end</option>
+      <option value="center">center</option>
+    </select>
+  </div>
+  <div>
+    <label for="grid-align-items">align-items: </label>
+    <select id="grid-align-items" [(ngModel)]="alignItems" (ngModelChange)="saveState()">
+      <option value="stretch">stretch</option>
+      <option value="start">start</option>
+      <option value="end">end</option>
+      <option value="center">center</option>
+    </select>
+  </div>
+  <div>
+    <label for="grid-justify-content">justify-content: </label>
+    <select id="grid-justify-content" [(ngModel)]="justifyContent" (ngModelChange)="saveState()">
+      <option value="normal">normal</option>
+      <option value="stretch">stretch</option>
+      <option value="start">start</option>
+      <option value="end">end</option>
+      <option value="center">center</option>
+      <option value="space-between">space-between</option>
+      <option value="space-around">space-around</option>
+      <option value="space-evenly">space-evenly</option>
+    </select>
+  </div>
+  <div>
+    <label for="grid-align-content">align-content: </label>
+    <select id="grid-align-content" [(ngModel)]="alignContent" (ngModelChange)="saveState()">
+      <option value="normal">normal</option>
+      <option value="stretch">stretch</option>
+      <option value="start">start</option>
+      <option value="end">end</option>
+      <option value="center">center</option>
+      <option value="space-between">space-between</option>
+      <option value="space-around">space-around</option>
+      <option value="space-evenly">space-evenly</option>
+    </select>
+  </div>
+  <div>
+    <label for="grid-area">grid-area: </label>
+    <input id="grid-area" [(ngModel)]="gridArea" (ngModelChange)="saveState()" />
+  </div>
+</div>

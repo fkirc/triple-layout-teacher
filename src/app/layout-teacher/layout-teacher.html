@@ -37,7 +37,7 @@
     } @case ('flex') {
     <flex-options (cssEmitter)="onCssChange($event)"></flex-options>
     } @case ('grid') {
-    <grid-options></grid-options>
+    <grid-options (cssEmitter)="onCssChange($event)"></grid-options>
     } @default {
     <div>Configuration for {{ layoutAlgorithm }} is not available.</div>
     } }
@@ -75,5 +75,10 @@
 
     Child 8: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
     incididunt ut labore et dolore magna aliqua.
+
+    <configurable-child
+      [layoutAlgorithm]="layoutAlgorithm"
+      [childName]="'Child 9'"
+    ></configurable-child>
   </div>
 </div>
