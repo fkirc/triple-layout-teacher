@@ -1,8 +1,8 @@
-# Magic Layout Teacher
+# Triple Layout Teacher
 
-An interactive demo for switching between CSS layout algorithms (flow, flexbox, grid, positioned).
+An interactive demo for the three CSS layout algorithms "flow", "flexbox" and "grid".
 
-Try it out live: https://css-layout-algorithm-demo.netlify.app/
+**Try it out live:** https://css-layout-algorithm-demo.netlify.app/
 
 This demo is inspired by the article "Understaying Layout Algorithms": https://www.joshwcomeau.com/css/understanding-layout-algorithms/
 
@@ -11,22 +11,12 @@ This demo is inspired by the article "Understaying Layout Algorithms": https://w
 For me, it was fruitless to memorize individual CSS properties without seeing the bigger picture.
 Only by understanding the underlying layout algorithms, I can make a mental CSS model that makes sense for me.
 
-Therefore, the Magic Layout Teacher serves as a playground for layout algorithms.
+Therefore, the Triple Layout Teacher serves as a playground for learning to layout.
+Beside of the three main algorithms, it also includes some pieces of "positioned layout" (absolute, relative).
 
-## Features
+## Techstack
 
-- Switch between different CSS layout algorithms
-- Switch a few properties within a selected layout algorithm
-
-## Further resources
-
-Beside of the resources above, studying the architecture of Chrome-RenderingNG helped me to understand CSS: https://developer.chrome.com/articles/renderingng-architecture/
-
-And even the Flutter rendering pipeline has some similarities with flexbox/grid: https://docs.flutter.dev/resources/architectural-overview#layout-and-rendering
-
-## Angular
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Development server
 

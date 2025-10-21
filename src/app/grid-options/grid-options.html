@@ -1,4 +1,15 @@
-<div style="display: flex; flex-direction: column; gap: 5px">
+<div
+  [style.display]="display"
+  [style.grid-template-columns]="gridTemplateColumns"
+  [style.grid-template-rows]="gridTemplateRows"
+  [style.column-gap]="columnGap"
+  [style.row-gap]="rowGap"
+  [style.justify-items]="justifyItems"
+  [style.align-items]="alignItems"
+  [style.justify-content]="justifyContent"
+  [style.align-content]="alignContent"
+  [style.grid-area]="gridArea"
+>
   <div>
     <label for="grid-display">grid-display: </label>
     <select id="grid-display" [(ngModel)]="display" (ngModelChange)="saveState()">
