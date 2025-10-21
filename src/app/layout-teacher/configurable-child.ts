@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LayoutAlgorithm } from './layout-teacher';
 
@@ -10,16 +10,32 @@ import { LayoutAlgorithm } from './layout-teacher';
       <div style="display: inline; margin-right: 4px">{{ childName }}:</div>
       <select class="child" [(ngModel)]="childCss" (ngModelChange)="saveState()">
         <option value="display: block;">
-          {{ layoutAlgorithm === 'block' ? '🟢' : '⚪' }}
+          {{ layoutAlgorithm === 'flow' ? '🟢' : '⚪' }}
           display: block
         </option>
         <option value="display: inline;">
-          {{ layoutAlgorithm === 'block' ? '🟢' : '⚪' }}
+          {{ layoutAlgorithm === 'flow' ? '🟢' : '⚪' }}
           display: inline
         </option>
         <option value="display: inline-block;">
-          {{ layoutAlgorithm === 'block' ? '🟢' : '⚪' }}
+          {{ layoutAlgorithm === 'flow' ? '🟢' : '⚪' }}
           display: inline-block
+        </option>
+        <option value="float: left;">
+          {{ layoutAlgorithm === 'flow' ? '🟢' : '🔴' }}
+          float: left
+        </option>
+        <option value="float: right;">
+          {{ layoutAlgorithm === 'flow' ? '🟢' : '🔴' }}
+          float: right
+        </option>
+        <option value="float: inline-start;">
+          {{ layoutAlgorithm === 'flow' ? '🟢' : '🔴' }}
+          float: inline-start
+        </option>
+        <option value="float: inline-end;">
+          {{ layoutAlgorithm === 'flow' ? '🟢' : '🔴' }}
+          float: inline-end
         </option>
         <option value="align-self: auto;">
           {{ layoutAlgorithm === 'flex' ? '🟢' : '🔴' }}
@@ -55,7 +71,7 @@ import { LayoutAlgorithm } from './layout-teacher';
     `,
   ],
 })
-export class ConfigurableChild {
+export class ConfigurableChild implements OnInit {
   childCss: string = 'display: inline-block;';
   @Input() layoutAlgorithm!: LayoutAlgorithm;
   @Input() childName!: string;

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './flex-options.html',
   styleUrl: './flex-options.css',
 })
-export class FlexOptions {
+export class FlexOptions implements OnInit {
   flexDirection: string = 'row';
   flexWrap: string = 'nowrap';
   justifyContent: string = 'flex-start';

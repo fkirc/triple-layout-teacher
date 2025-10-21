@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -18,13 +18,13 @@ import { FormsModule } from '@angular/forms';
         <option value="none">object-fit: none</option>
         <option value="scale-down">object-fit: scale-down</option>
       </select>
-  
+
       <img style="width: 20vw; height: 8vh" [style.objectFit]="objectFit" src="./favicon.ico" />
     </div>
   `,
   styles: [],
 })
-export class ImageObjectFit {
+export class ImageObjectFit implements OnInit {
   objectFit: string = 'fill';
 
   private readonly storageKey: string = 'imageObjectFit';

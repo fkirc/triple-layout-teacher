@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './block-options.html',
   styleUrl: './block-options.css',
 })
-export class BlockOptions {
+export class BlockOptions implements OnInit {
   textAlign: string = '5px 5px';
   position: string = 'static';
 

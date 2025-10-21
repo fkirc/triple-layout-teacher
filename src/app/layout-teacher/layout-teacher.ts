@@ -7,7 +7,7 @@ import { GridOptions } from '../grid-options/grid-options';
 import { ConfigurableChild } from './configurable-child';
 import { ImageObjectFit } from './image-object-fit';
 
-const layoutAlgorithms = ['flex', 'grid', 'block'] as const;
+const layoutAlgorithms = ['flex', 'grid', 'flow'] as const;
 export type LayoutAlgorithm = (typeof layoutAlgorithms)[number];
 
 @Component({

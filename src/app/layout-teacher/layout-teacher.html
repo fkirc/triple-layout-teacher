@@ -31,7 +31,7 @@
   </div>
 
   <div class="optionsBox">
-    @switch (layoutAlgorithm) { @case ('block') {
+    @switch (layoutAlgorithm) { @case ('flow') {
     <app-block-options (cssEmitter)="onCssChange($event)"></app-block-options>
     } @case ('flex') {
     <app-flex-options (cssEmitter)="onCssChange($event)"></app-flex-options>
