@@ -12,6 +12,7 @@ export class FlexOptions {
   flexWrap: string = 'nowrap';
   justifyContent: string = 'flex-start';
   alignItems: string = 'stretch';
+  alignContent: string = 'normal';
 
   @Output() cssEmitter = new EventEmitter<string>();
 
@@ -25,6 +26,10 @@ export class FlexOptions {
   }
 
   private getCss(): string {
-    return `display: flex; flex-direction: ${this.flexDirection}; flex-wrap: ${this.flexWrap}; justify-content: ${this.justifyContent}; align-items: ${this.alignItems};`;
+    let base = `display: flex; flex-direction: ${this.flexDirection}; flex-wrap: ${this.flexWrap}; justify-content: ${this.justifyContent}; align-items: ${this.alignItems};`;
+    if (this.alignContent !== 'normal') {
+      base += ` align-content: ${this.alignContent};`;
+    }
+    return base;
   }
 }
