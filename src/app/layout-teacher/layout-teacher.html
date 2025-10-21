@@ -48,7 +48,20 @@
   </div>
 
   <div class="playgroundBox" [style]="playgroundParentStyle">
-    <div class="child"><code>&lt;div&gt;Child 1&lt;/div&gt;</code></div>
+    <div class="child" [style]="child1CSS" style="margin: 5px">
+      <div style="display: inline; margin-right: 4px">Child 1:</div>
+      <select class="child" id="child-1-select" [(ngModel)]="child1CSS" (change)="saveState()">
+        <option value="display: block">display: block</option>
+        <option value="display: inline">display: inline</option>
+        <option value="display: inline-block">display: inline-block</option>
+        <option value="align-self: auto">align-self: auto</option>
+        <option value="align-self: stretch">align-self: stretch</option>
+        <option value="align-self: center">align-self: center</option>
+        <option value="align-self: flex-start">align-self: flex-start</option>
+        <option value="align-self: flex-end">align-self: flex-end</option>
+      </select>
+    </div>
+
     <div class="child">
       <code>&lt;div&gt; Child 2: Lorem ipsum linebreak,<br />after linebreak. &lt;/div&gt;</code>
       <p><code>&lt;p&gt;A p-tag within child 2&lt;/p&gt;</code></p>
