@@ -1,7 +1,18 @@
-<div style="display: flex; flex-direction: column; gap: 5px">
+<div
+  [style.display]="'flex'"
+  [style.flex-direction]="flexDirection"
+  [style.justify-content]="justifyContent"
+  [style.align-items]="alignItems"
+  [style.flex-wrap]="flexWrap"
+  [style.gap]="gap"
+>
   <div>
     <label for="flex-direction-select">flex-direction: </label>
-    <select id="flex-direction-select" [(ngModel)]="flexDirection" (ngModelChange)="sendCssToParent()">
+    <select
+      id="flex-direction-select"
+      [(ngModel)]="flexDirection"
+      (ngModelChange)="sendCssToParent()"
+    >
       @for (option of ['row', 'column', 'row-reverse', 'column-reverse']; track option) {
       <option [value]="option">
         {{ option }}
@@ -11,7 +22,11 @@
   </div>
   <div>
     <label for="justify-content-select">justify-content: </label>
-    <select id="justify-content-select" [(ngModel)]="justifyContent" (ngModelChange)="sendCssToParent()">
+    <select
+      id="justify-content-select"
+      [(ngModel)]="justifyContent"
+      (ngModelChange)="sendCssToParent()"
+    >
       @for (option of ['flex-start', 'flex-end', 'center', 'space-between', 'space-around']; track
       option) {
       <option [value]="option">
@@ -41,7 +56,11 @@
     </select>
     @if (flexWrap !== 'nowrap') {
     <label for="align-content-select"> align-content: </label>
-    <select id="align-content-select" [(ngModel)]="alignContent" (ngModelChange)="sendCssToParent()">
+    <select
+      id="align-content-select"
+      [(ngModel)]="alignContent"
+      (ngModelChange)="sendCssToParent()"
+    >
       @for (option of ['normal', 'flex-start', 'flex-end', 'center', 'space-between',
       'space-around']; track option) {
       <option [value]="option">

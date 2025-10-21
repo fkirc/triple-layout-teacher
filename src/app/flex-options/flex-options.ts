@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './flex-options.css',
 })
 export class FlexOptions implements OnInit {
-  flexDirection: string = 'row';
+  flexDirection: string = 'column';
   flexWrap: string = 'nowrap';
   justifyContent: string = 'flex-start';
   alignItems: string = 'stretch';

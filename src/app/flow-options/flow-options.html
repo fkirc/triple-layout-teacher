@@ -1,4 +1,4 @@
-<div style="display: flex; flex-direction: column; gap: 5px">
+<div [style.display]="'block'" [style.text-align]="textAlign" [style.position]="position">
   <div>
     <label for="block-text-align">text-align: </label>
     <select id="block-text-align" [(ngModel)]="textAlign" (ngModelChange)="saveState()">
@@ -13,8 +13,7 @@
   <div>
     <label for="block-position">position: </label>
     <select id="block-position" [(ngModel)]="position" (ngModelChange)="saveState()">
-      @for (option of ['static', 'relative', 'absolute', 'fixed', 'sticky']; track
-      option) {
+      @for (option of ['static', 'relative', 'absolute', 'fixed', 'sticky']; track option) {
       <option [value]="option">
         {{ option }}
       </option>
