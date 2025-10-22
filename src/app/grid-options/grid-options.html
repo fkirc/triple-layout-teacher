@@ -8,7 +8,7 @@
   [style.align-items]="alignItems"
   [style.justify-content]="justifyContent"
   [style.align-content]="alignContent"
-  [style.grid-area]="gridArea"
+  [style.grid-auto-flow]="gridAutoFlow"
 >
   <div>
     <label for="grid-display">grid-display: </label>
@@ -102,7 +102,11 @@
     </select>
   </div>
   <div>
-    <label for="grid-area">grid-area: </label>
-    <input id="grid-area" [(ngModel)]="gridArea" (ngModelChange)="saveState()" />
+    <label for="grid-auto-flow">grid-auto-flow: </label>
+    <select id="grid-auto-flow" [(ngModel)]="gridAutoFlow" (ngModelChange)="saveState()">
+      <option value="row">row</option>
+      <option value="column">column</option>
+      <option value="dense">dense</option>
+    </select>
   </div>
 </div>

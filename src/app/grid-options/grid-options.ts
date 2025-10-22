@@ -10,13 +10,13 @@ export class GridOptions implements OnInit {
   display: 'grid' | 'inline-grid' = 'grid';
   gridTemplateColumns: string = '1fr';
   gridTemplateRows: string = 'auto';
-  gridArea: string = 'auto';
   columnGap: string = '5px';
   rowGap: string = '5px';
   justifyItems: string = 'stretch';
   alignItems: string = 'stretch';
   justifyContent: string = 'normal';
   alignContent: string = 'normal';
+  gridAutoFlow: string = 'row';
 
   @Output() cssEmitter = new EventEmitter<string>();
 
@@ -28,7 +28,7 @@ export class GridOptions implements OnInit {
   }
 
   private getCss(): string {
-    let base = `display: ${this.display}; grid-template-columns: ${this.gridTemplateColumns}; grid-template-rows: ${this.gridTemplateRows}; grid-area: ${this.gridArea}; justify-items: ${this.justifyItems}; align-items: ${this.alignItems};`;
+    let base = `display: ${this.display}; grid-template-columns: ${this.gridTemplateColumns}; grid-template-rows: ${this.gridTemplateRows}; justify-items: ${this.justifyItems}; align-items: ${this.alignItems};`;
     if (this.columnGap && this.columnGap !== '0px') {
       base += ` column-gap: ${this.columnGap};`;
     }
@@ -41,6 +41,7 @@ export class GridOptions implements OnInit {
     if (this.alignContent && this.alignContent !== 'normal') {
       base += ` align-content: ${this.alignContent};`;
     }
+    base += ` grid-auto-flow: ${this.gridAutoFlow};`;
     return base;
   }
 
@@ -55,7 +56,6 @@ export class GridOptions implements OnInit {
       console.log('Loaded grid config from localStorage:', config);
       this.gridTemplateColumns = config.gridTemplateColumns || this.gridTemplateColumns;
       this.gridTemplateRows = config.gridTemplateRows || this.gridTemplateRows;
-      this.gridArea = config.gridArea || this.gridArea;
       this.display = config.display || this.display;
       this.columnGap = config.columnGap || this.columnGap;
       this.rowGap = config.rowGap || this.rowGap;
@@ -63,6 +63,7 @@ export class GridOptions implements OnInit {
       this.alignItems = config.alignItems || this.alignItems;
       this.justifyContent = config.justifyContent || this.justifyContent;
       this.alignContent = config.alignContent || this.alignContent;
+      this.gridAutoFlow = config.gridAutoFlow || this.gridAutoFlow;
     }
   }
 
@@ -74,7 +75,6 @@ export class GridOptions implements OnInit {
     const config = {
       gridTemplateColumns: this.gridTemplateColumns,
       gridTemplateRows: this.gridTemplateRows,
-      gridArea: this.gridArea,
       display: this.display,
       columnGap: this.columnGap,
       rowGap: this.rowGap,
@@ -82,6 +82,7 @@ export class GridOptions implements OnInit {
       alignItems: this.alignItems,
       justifyContent: this.justifyContent,
       alignContent: this.alignContent,
+      gridAutoFlow: this.gridAutoFlow,
     };
     localStorage.setItem(this.storageKey, JSON.stringify(config));
   }
