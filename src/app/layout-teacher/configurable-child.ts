@@ -78,7 +78,7 @@ import { LayoutAlgorithm } from './layout-teacher';
         background-color: aqua;
       }
       :host {
-        display: contents; // So that the wrapper div does not prevent children from being flex/grid items
+        display: contents; /* So that the wrapper div does not prevent children from being flex/grid items */
       }
     `,
   ],

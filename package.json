@@ -1,5 +1,5 @@
 {
-  "name": "magic-layout-teacher",
+  "name": "triple-layout-teacher",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:magic-layout-teacher": "node dist/magic-layout-teacher/server/server.mjs"
+    "serve:ssr:triple-layout-teacher": "node dist/triple-layout-teacher/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,

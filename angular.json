@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "magic-layout-teacher": {
+    "triple-layout-teacher": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -58,10 +58,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "magic-layout-teacher:build:production"
+              "buildTarget": "triple-layout-teacher:build:production"
             },
             "development": {
-              "buildTarget": "magic-layout-teacher:build:development"
+              "buildTarget": "triple-layout-teacher:build:development"
             }
           },
           "defaultConfiguration": "development"

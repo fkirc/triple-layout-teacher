@@ -11,6 +11,8 @@ This demo is inspired by the article "Understaying Layout Algorithms": https://w
 For me, it was fruitless to memorize individual CSS properties without seeing the bigger picture.
 Only by understanding the underlying layout algorithms, I can make a mental CSS model that makes sense for me.
 
+Even though CSS can be AI-generated, I argue that an understanding of layout-algorithms is still helpful for fixing bugs within (generated) code.
+
 Therefore, the Triple Layout Teacher serves as a playground for learning to layout.
 Beside of the three main algorithms, it also includes some pieces of "positioned layout" (absolute, relative).
 

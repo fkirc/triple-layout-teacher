@@ -9,5 +9,5 @@ import { LayoutTeacher } from './layout-teacher/layout-teacher';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('magic-layout-teacher');
+  protected readonly title = signal('triple-layout-teacher');
 }
