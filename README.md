@@ -2,7 +2,7 @@
 
 An interactive demo for the three CSS layout algorithms "flow", "flexbox" and "grid".
 
-**Try it out live:** https://css-layout-algorithm-demo.netlify.app/
+**Try it out live:** https://triple-layout-teacher.netlify.app
 
 This demo is inspired by the article "Understaying Layout Algorithms": https://www.joshwcomeau.com/css/understanding-layout-algorithms/
 
