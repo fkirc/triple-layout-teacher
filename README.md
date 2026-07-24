@@ -6,6 +6,12 @@ An interactive demo for the three CSS layout algorithms "flow", "flexbox" and "g
 
 This demo is inspired by the article "Understaying Layout Algorithms": https://www.joshwcomeau.com/css/understanding-layout-algorithms/
 
+## 2026 Update
+
+I created this project shortly before the time when I started to use agentic feedback loops that control a browser for finishing frontend-tasks end-to-end.
+Nevertheless, a few bits of CSS knowledge might still be valuable to better understand which ingredients should be served to an agent, for example Tailwind or Panda CSS.
+More on this I wrote in the article https://fkirc.github.io/frontend-at-inference-speed.html .
+
 ## Learning Goal
 
 For me, it was fruitless to memorize individual CSS properties without seeing the bigger picture.
